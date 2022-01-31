@@ -1,27 +1,102 @@
-// HINT: You can delete this console.log after you no longer need it!
-console.log('JavaScript code has loaded!')
 // First, tell us your name
-let yourName = "Jane Doe" // HINT: Replace this with your own name!
+let yourName = "Jack Wright" // HINT: Replace this with your own name!
 
 // We'll use these variables to track the counts of each cookie type
-let gb = 0 // Gingerbread
-let cc = 0 // Chocolate Chip
-let sugar = 0 // Sugar Sprinkle
+let gbCount = 0 // Gingerbread
+let ccCount = 0 // Chocolate Chip
+let sugarCount = 0 // Sugar Sprinkle
+let totalCount = 0
 
-// selecting the element with an id of credit
+// select credit
 const credit = document.querySelector('#credit')
-// selecting the element with an id of add-gb
+
+// select buttons
 const gbPlusBtn = document.querySelector('#add-gb')
+const gbMinBtn = document.querySelector('#minus-gb')
+const ccPlusBtn = document.querySelector('#add-cc')
+const ccMinBtn = document.querySelector('#minus-cc')
+const sugarPlusBtn = document.querySelector('#add-sugar')
+const sugarMinBtn = document.querySelector('#minus-sugar')
+
+// select quantities
+const gbDisplay = document.querySelector("#qty-gb")
+const ccDisplay = document.querySelector("#qty-cc")
+const sugarDisplay = document.querySelector("#qty-sugar")
+const totalDisplay = document.querySelector("#qty-total")
 
 // Code to update name display
 credit.textContent = `Created by ${yourName}`
 
-// Event listener for clicks on the "+" button for Gingerbread cookies
-gbPlusBtn.addEventListener('click', function() {
-// HINT: You can delete this console.log after you no longer need it!
-console.log('Gingerbread + button was clicked!')
+// gingerbread plus
+gbPlusBtn.addEventListener('click', function() 
+{
+	gbCount += 1
 
-// TODO: Write the code to be run when the "+" button for "Gingerbread" is clicked
+	gbDisplay.textContent = gbCount
+	updateTotal()
 })
 
-// TODO: Hook up event listeners for the rest of the buttons
+// chocolate plus
+ccPlusBtn.addEventListener('click', function() 
+{
+	ccCount += 1
+
+	ccDisplay.textContent = ccCount
+	updateTotal()
+})
+
+// sugar plus
+sugarPlusBtn.addEventListener('click', function() 
+{
+	sugarCount += 1
+
+	sugarDisplay.textContent = sugarCount
+	updateTotal()
+})
+
+// gingerbread minus
+gbMinBtn.addEventListener('click', function() 
+{
+	gbCount -= 1
+	if (gbCount <= 0)
+	{
+		gbCount = 0
+	}
+
+	gbDisplay.textContent = gbCount
+	updateTotal()
+})
+
+// chocolate minus
+ccMinBtn.addEventListener('click', function() 
+{
+	ccCount -= 1
+	if (ccCount <= 0)
+	{
+		ccCount = 0
+	}
+
+	ccDisplay.textContent = ccCount
+	updateTotal()
+})
+
+// sugar minus
+sugarMinBtn.addEventListener('click', function() 
+{
+	sugarCount -= 1
+	if (sugarCount <= 0)
+	{
+		sugarCount = 0
+	}
+
+	sugarDisplay.textContent = sugarCount
+	updateTotal()
+})
+
+// total function
+function updateTotal() 
+{
+	totalCount = gbCount + ccCount + sugarCount
+
+	totalDisplay.textContent = totalCount
+}
