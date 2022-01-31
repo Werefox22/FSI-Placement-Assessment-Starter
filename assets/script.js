@@ -1,14 +1,13 @@
-// First, tell us your name
-let yourName = "Jack Wright" // HINT: Replace this with your own name!
-
-// We'll use these variables to track the counts of each cookie type
-let gbCount = 0 // Gingerbread
-let ccCount = 0 // Chocolate Chip
-let sugarCount = 0 // Sugar Sprinkle
-let totalCount = 0
-
-// select credit
+// set name
+let yourName = "Jack Wright"
 const credit = document.querySelector('#credit')
+credit.textContent = `Created by ${yourName}`
+
+// set cookie counts
+let gbCount = 0 
+let ccCount = 0 
+let sugarCount = 0
+let totalCount = 0
 
 // select buttons
 const gbPlusBtn = document.querySelector('#add-gb')
@@ -18,14 +17,11 @@ const ccMinBtn = document.querySelector('#minus-cc')
 const sugarPlusBtn = document.querySelector('#add-sugar')
 const sugarMinBtn = document.querySelector('#minus-sugar')
 
-// select quantities
+// select count displays
 const gbDisplay = document.querySelector("#qty-gb")
 const ccDisplay = document.querySelector("#qty-cc")
 const sugarDisplay = document.querySelector("#qty-sugar")
 const totalDisplay = document.querySelector("#qty-total")
-
-// Code to update name display
-credit.textContent = `Created by ${yourName}`
 
 // gingerbread plus
 gbPlusBtn.addEventListener('click', function() 
